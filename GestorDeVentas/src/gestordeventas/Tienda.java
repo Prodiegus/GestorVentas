@@ -14,7 +14,7 @@ public class Tienda {
     private Serializador serializador;
     private ArrayList<Producto> productos;
     private ArrayList<Vendedor> vendedores;
-    Vendedor vendedorLogged = null;
+    Vendedor vendedorLogged = new Vendedor("Vendedor Desconosido", 0000);
 
     //constructores
     public Tienda() {
@@ -52,6 +52,16 @@ public class Tienda {
             vendedores.add(serializador.ingresarABD(new Vendedor(nombre, clave)));
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 812"+e);
+            return false;
+        }
+        return true;
+    }
+    public boolean addProducto(String nombre, Float precio){
+        try {
+            //productos.addAll(serializador.cargarDataBaseP());
+            productos.add(serializador.ingresarABD(new Producto(nombre, productos.size()+1000,precio)));
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 807"+e);
             return false;
         }
         return true;

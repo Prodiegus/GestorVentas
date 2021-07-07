@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
 /**
  *
  * @author prodiegus
@@ -40,7 +42,7 @@ public class Serializador implements Serializable{
 
     //clase para serializar el objeto Producto
     public Producto ingresarABD(Producto producto) throws IOException{
-        FileOutputStream file = new FileOutputStream("GestorDeVentas/DataBase/productos/"+producto.getId());
+        FileOutputStream file = new FileOutputStream("GestorDeVentas/DataBase/productos/"+Integer.toString(producto.getId()).trim());
         ObjectOutputStream output = new ObjectOutputStream(file);
         if(output != null){
             output.writeObject(producto);
@@ -109,7 +111,7 @@ public class Serializador implements Serializable{
                  * de tipo FileInputStream de java.io 
                  * 
                  */
-                file = new FileInputStream("GestrorDeVentas/DataBase/productos/"+path.getFileName().toString());
+                file = new FileInputStream(path.toFile());
                 input = new ObjectInputStream(file);
 
                 producto = (Producto)input.readObject();
@@ -119,7 +121,7 @@ public class Serializador implements Serializable{
             }
             stream.close();
         } catch (Exception e) {
-            System.err.println(e);
+            JOptionPane.showMessageDialog(null, "ERROR: 540\n "+e);
         }
         return productos;
     }

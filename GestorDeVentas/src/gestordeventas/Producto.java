@@ -35,4 +35,9 @@ public class Producto implements Serializable{
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return nombre+" ID: "+id+" Costo: $"+precio;
+    }
 }

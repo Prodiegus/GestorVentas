@@ -47,6 +47,10 @@ public class LoggingController implements Initializable {
 
                 VendedoresController controller = loader.getController();
 
+                controller.setVendedor(tienda.getVendedorLogged());
+                controller.setProductos(tienda.getProductos());
+                controller.setTienda(tienda);
+
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
 
