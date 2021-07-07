@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="registrar" onDragDetected="#handleRegistar" prefHeight="214.0" prefWidth="340.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="gestordeventas.RegisterController">
+<AnchorPane  prefHeight="214.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestordeventas.RegisterController">
    <children>
       <Label layoutX="95.0" layoutY="14.0" text="ProStore">
          <font>
@@ -16,8 +15,8 @@
       </Label>
       <Label layoutX="25.0" layoutY="86.0" text="Nombre Usuario: " />
       <Label layoutX="35.0" layoutY="129.0" text="Clave Acceso: " />
-      <TextField layoutX="152.0" layoutY="82.0" />
-      <TextField layoutX="152.0" layoutY="125.0" />
-      <Button layoutX="237.0" layoutY="165.0" mnemonicParsing="false" text="Registrar" />
+      <TextField fx:id="usuario" layoutX="152.0" layoutY="82.0" />
+      <TextField fx:id="clave" layoutX="152.0" layoutY="125.0" />
+      <Button fx:id="registrar" layoutX="237.0" layoutY="165.0" mnemonicParsing="false" onAction="#handleRegistro" text="Registrar" />
    </children>
 </AnchorPane>

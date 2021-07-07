@@ -5,10 +5,6 @@
  */
 package gestordeventas;
 
-import java.io.IOException;
-
-import javax.swing.JOptionPane;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,31 +13,25 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author diego
+ * @author prodiegus
  */
 public class GestorDeVentas extends Application {
-    
+    private Tienda store;
+    public GestorDeVentas() {
+        this.store = new Tienda();
+    }
     @Override
     public void start(Stage stage) throws Exception {
+        //store.leerDisco();
+
         Parent root = FXMLLoader.load(getClass().getResource("Logging.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
+
+        Scene logging = new Scene(root);
+
+        stage.setTitle("Loggin ProStore");
+        stage.centerOnScreen();
+        stage.setScene(logging);
         stage.show();
-    }
-    public void registrar(Stage stage){
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("Registrar.fxml"));
-
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: "+e);
-        }
     }
     /**
      * @param args the command line arguments

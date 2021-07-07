@@ -5,6 +5,7 @@ package gestordeventas;
  */
 
 import java.io.IOException;
+import java.security.MessageDigest;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -26,12 +27,23 @@ public class Tienda {
         return vendedores.contains(new Vendedor(nombre, clave));
     }
 
+    //metodos de manejo de memoria
+    public void leerDisco() {
+        try {
+            vendedores.addAll(serializador.cargarDataBaseV());
+            productos.addAll(serializador.cargarDataBaseP());
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Error: 720\n"+e);
+        }
+        
+    }
+
     // metodos de agregado y borrado
     public boolean addVendedor(String nombre, int clave){
         try {
             vendedores.add(serializador.ingresarABD(new Vendedor(nombre, clave)));
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "ERROR: "+e);
+            JOptionPane.showMessageDialog(null, "ERROR: 812"+e);
             return false;
         }
         return true;

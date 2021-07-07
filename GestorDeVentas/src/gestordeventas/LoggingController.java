@@ -12,7 +12,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -23,7 +25,8 @@ public class LoggingController implements Initializable {
     
     @FXML
     private Label label;
-    
+    @FXML
+    private Button registrar;
 
     //Botones
     @FXML
@@ -31,9 +34,24 @@ public class LoggingController implements Initializable {
         label.setText("Ingresar");
     }
     @FXML
-    private void handleRegistrar(Stage event){
-        GestorDeVentas gestor = new GestorDeVentas();
-        gestor.registrar(event);
+    private void handleRegistrar(ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Register.fxml"));
+            
+            Parent root = loader.load();//Aqui hay un Error
+
+            RegisterController controller = loader.getController();
+
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Menu de Registro Vendedor");
+            stage.setScene(scene);
+            stage.showAndWait();
+            
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: 604\n"+e);
+        }
         label.setText("Registrar");
     }
 
