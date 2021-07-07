@@ -5,6 +5,10 @@
  */
 package gestordeventas;
 
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +30,19 @@ public class GestorDeVentas extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public void registrar(Stage stage){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("Registrar.fxml"));
 
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "ERROR: "+e);
+        }
+    }
     /**
      * @param args the command line arguments
      */
