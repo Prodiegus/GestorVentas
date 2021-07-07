@@ -14,6 +14,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -26,12 +28,20 @@ public class LoggingController implements Initializable {
     @FXML
     private Label label;
     @FXML
+    TextField usuario;
+    @FXML
+    PasswordField clave;
+    @FXML
     private Button registrar;
 
     //Botones
     @FXML
     private void handleIngresar(ActionEvent event) {
-        label.setText("Ingresar");
+        Tienda tienda = new Tienda();
+        if(tienda.log(usuario.getText().trim(), Integer.parseInt(clave.getText().trim()))){
+            label.setText("Ingresado");
+        }
+        
     }
     @FXML
     private void handleRegistrar(ActionEvent event){
@@ -52,7 +62,6 @@ public class LoggingController implements Initializable {
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "ERROR: 604\n"+e);
         }
-        label.setText("Registrar");
     }
 
     @Override

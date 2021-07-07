@@ -22,7 +22,7 @@ public class GestorDeVentas extends Application {
     }
     @Override
     public void start(Stage stage) throws Exception {
-        //store.leerDisco();
+        store.leerDisco();
 
         Parent root = FXMLLoader.load(getClass().getResource("Logging.fxml"));
 

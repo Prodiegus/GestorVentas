@@ -15,9 +15,9 @@
             <Font name="Times New Roman Bold" size="41.0" />
          </font></Label>
       <Button fx:id="registrar" layoutX="143.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleRegistrar" text="Registrar" />
-      <TextField layoutX="139.0" layoutY="102.0" />
+      <TextField fx:id="usuario" layoutX="139.0" layoutY="102.0" />
       <Label layoutX="22.0" layoutY="106.0" text="Nombre Usuario:" />
       <Label layoutX="30.0" layoutY="145.0" text="Clave Acceso: " />
-      <PasswordField layoutX="139.0" layoutY="141.0" />
+      <PasswordField fx:id="clave" layoutX="139.0" layoutY="141.0" />
     </children>
 </AnchorPane>
