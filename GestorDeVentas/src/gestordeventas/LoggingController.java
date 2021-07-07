@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -28,13 +29,13 @@ public class LoggingController implements Initializable {
     @FXML
     private Label label;
     @FXML
-    TextField usuario;
+    private TextField usuario;
     @FXML
-    PasswordField clave;
+    private PasswordField clave;
     @FXML
     private Button registrar;
 
-    //Botones
+    //Listeners
     @FXML
     private void handleIngresar(ActionEvent event) {
         Tienda tienda = new Tienda();
@@ -52,21 +53,14 @@ public class LoggingController implements Initializable {
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Menu de Ventas");
                 stage.setScene(scene);
-                close();
+                close(event);
                 stage.show();
 
             } catch (IOException e) {
                 JOptionPane.showMessageDialog(null, "ERROR: 601\n"+e);
             }
-
-
         }
         
-    }
-
-    //closer
-    private void close() {
-
     }
     @FXML
     private void handleRegistrar(ActionEvent event){
@@ -90,6 +84,17 @@ public class LoggingController implements Initializable {
         }
     }
 
+    //closer
+    @FXML
+    private void close(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
+
+    public String getUser(){
+        return usuario.getText().trim();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

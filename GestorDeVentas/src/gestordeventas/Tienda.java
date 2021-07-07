@@ -14,6 +14,7 @@ public class Tienda {
     private Serializador serializador;
     private ArrayList<Producto> productos;
     private ArrayList<Vendedor> vendedores;
+    Vendedor vendedorLogged = null;
 
     //constructores
     public Tienda() {
@@ -21,13 +22,15 @@ public class Tienda {
         this.productos = new ArrayList<Producto>();
         this.vendedores = new ArrayList<Vendedor>();
     }
-    
+
     //metodos de verifado
     public boolean log(String nombre, int clave) {
         leerDisco();
         for (Vendedor vendedor : vendedores) {
-            if(vendedor.getNombre().equals(nombre) && vendedor.getClave() == clave)
+            if(vendedor.getNombre().equals(nombre) && vendedor.getClave() == clave){
+                vendedorLogged = vendedor;
                 return true;
+            }
         }
         return false;
     }
@@ -60,6 +63,9 @@ public class Tienda {
     }
     public ArrayList<Vendedor> getVendedores() {
         return vendedores;
+    }
+    public Vendedor getVendedorLogged() {
+        return vendedorLogged;
     }
 
     //setters
