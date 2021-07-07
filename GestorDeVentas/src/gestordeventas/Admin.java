@@ -1,5 +1,4 @@
 package gestordeventas;
-
 /**
  *
  * @author prodiegus

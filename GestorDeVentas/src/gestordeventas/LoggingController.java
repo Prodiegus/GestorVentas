@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package gestordeventas;
 
 import java.net.URL;
@@ -9,9 +14,9 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author prodiegus
+ * @author diego
  */
-public class Logging implements Initializable {
+public class LoggingController implements Initializable {
     
     @FXML
     private Label label;
@@ -19,7 +24,6 @@ public class Logging implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
-        label.setText("Hello World!");
     }
     
     @Override
