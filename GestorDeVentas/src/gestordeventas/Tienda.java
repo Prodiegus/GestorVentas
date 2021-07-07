@@ -5,7 +5,6 @@ package gestordeventas;
  */
 
 import java.io.IOException;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -22,13 +21,19 @@ public class Tienda {
         this.productos = new ArrayList<Producto>();
         this.vendedores = new ArrayList<Vendedor>();
     }
+    
     //metodos de verifado
     public boolean log(String nombre, int clave) {
-        return vendedores.contains(new Vendedor(nombre, clave));
+        leerDisco();
+        for (Vendedor vendedor : vendedores) {
+            if(vendedor.getNombre().equals(nombre) && vendedor.getClave() == clave)
+                return true;
+        }
+        return false;
     }
 
     //metodos de manejo de memoria
-    public void leerDisco() {
+    private void leerDisco() {
         try {
             vendedores.addAll(serializador.cargarDataBaseV());
             productos.addAll(serializador.cargarDataBaseP());

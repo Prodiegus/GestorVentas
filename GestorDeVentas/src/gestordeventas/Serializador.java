@@ -26,7 +26,7 @@ public class Serializador implements Serializable{
 
     //clase para serializar el objeto Vendedor
     public Vendedor ingresarABD(Vendedor vendedor) throws IOException{
-        FileOutputStream file = new FileOutputStream("DataBase/vendedores/"+vendedor.getNombre());
+        FileOutputStream file = new FileOutputStream("GestorDeVentas/DataBase/vendedores/"+vendedor.getNombre());
         ObjectOutputStream output = new ObjectOutputStream(file);
         if(output != null){
             output.writeObject(vendedor);
@@ -40,7 +40,7 @@ public class Serializador implements Serializable{
 
     //clase para serializar el objeto Producto
     public Producto ingresarABD(Producto producto) throws IOException{
-        FileOutputStream file = new FileOutputStream("DataBase/productos/"+producto.getId());
+        FileOutputStream file = new FileOutputStream("GestorDeVentas/DataBase/productos/"+producto.getId());
         ObjectOutputStream output = new ObjectOutputStream(file);
         if(output != null){
             output.writeObject(producto);
@@ -66,7 +66,7 @@ public class Serializador implements Serializable{
         Vendedor vendedor = null;
 
         //try catch para recorrer carpeta DataBase y crear una lista con los objetos
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("DataBase/vendedores/"))){
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("GestorDeVentas/DataBase/vendedores/"))){
 
             //utilizamos este foreach para recorrer la carpeta
             for (Path path : stream) {
@@ -76,7 +76,7 @@ public class Serializador implements Serializable{
                  * de tipo FileInputStream de java.io 
                  * 
                  */
-                file = new FileInputStream("DataBase/vendedores"+path.getFileName().toString());
+                file = new FileInputStream("GestorDeVentas/DataBase/vendedores/"+path.getFileName().toString());
                 input = new ObjectInputStream(file);
 
                 vendedor = (Vendedor)input.readObject();
@@ -99,7 +99,7 @@ public class Serializador implements Serializable{
         Producto producto = null;
 
         //try catch para recorrer carpeta DataBase y crear una lista con los objetos
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("DataBase/productos/"))){
+        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("GestorDeVentas/DataBase/productos/"))){
 
             //utilizamos este foreach para recorrer la carpeta
             for (Path path : stream) {
@@ -109,7 +109,7 @@ public class Serializador implements Serializable{
                  * de tipo FileInputStream de java.io 
                  * 
                  */
-                file = new FileInputStream("DataBase/productos"+path.getFileName().toString());
+                file = new FileInputStream("GestrorDeVentas/DataBase/productos/"+path.getFileName().toString());
                 input = new ObjectInputStream(file);
 
                 producto = (Producto)input.readObject();
@@ -132,7 +132,7 @@ public class Serializador implements Serializable{
 
     //este metodo simplemente borra 1 cliente segun id
     public void borrar(String id) {
-        File archivo = new File("DataBase/"+id);
+        File archivo = new File("GestorDeVentas/DataBase/"+id);
         if(!archivo.exists() || !archivo.delete()){
             System.err.println("Error al borrar de DataBase");
         }

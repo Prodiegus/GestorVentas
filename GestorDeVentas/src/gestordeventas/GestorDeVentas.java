@@ -16,14 +16,8 @@ import javafx.stage.Stage;
  * @author prodiegus
  */
 public class GestorDeVentas extends Application {
-    private Tienda store;
-    public GestorDeVentas() {
-        this.store = new Tienda();
-    }
     @Override
     public void start(Stage stage) throws Exception {
-        store.leerDisco();
-
         Parent root = FXMLLoader.load(getClass().getResource("Logging.fxml"));
 
         Scene logging = new Scene(root);

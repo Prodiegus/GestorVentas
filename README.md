@@ -3,11 +3,16 @@ GestorVentas
 
 Reporte de Errores:
 
+    ERROR: 601
+
+        Se suele presentar al momento de logear y tiene relacion en la 
+        ventana de ventas de los vendedores.
+
     ERROR: 604
         
         Este error sucede al momento de pulsar el boton Registrar
         dentro de el Logging, suele pasar porque el programa no 
-        logra ejecutar la ventana del menu de registro
+        logra ejecutar la ventana del menu de registro.
         Posibles errores: 
             - https://docs.oracle.com/javase/9/docs/api/index.html?javafx/fxml/LoadException.html
     
@@ -22,4 +27,4 @@ Reporte de Errores:
 
         Error de tienda en el metodo addVendedor suele ocurrir
         al momento de agregar un nuego vendedor luego del registro
-        lo mas probable es que tenga que ver con las carpetas
+        lo mas probable es que tenga que ver con las carpetas.

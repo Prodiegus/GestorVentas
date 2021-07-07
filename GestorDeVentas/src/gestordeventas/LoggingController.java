@@ -39,9 +39,34 @@ public class LoggingController implements Initializable {
     private void handleIngresar(ActionEvent event) {
         Tienda tienda = new Tienda();
         if(tienda.log(usuario.getText().trim(), Integer.parseInt(clave.getText().trim()))){
-            label.setText("Ingresado");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Vendedores.fxml"));
+
+            try {
+                Parent root = loader.load();
+
+                VendedoresController controller = loader.getController();
+
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.setTitle("Menu de Ventas");
+                stage.setScene(scene);
+                close();
+                stage.show();
+
+            } catch (IOException e) {
+                JOptionPane.showMessageDialog(null, "ERROR: 601\n"+e);
+            }
+
+
         }
         
+    }
+
+    //closer
+    private void close() {
+
     }
     @FXML
     private void handleRegistrar(ActionEvent event){
@@ -54,6 +79,7 @@ public class LoggingController implements Initializable {
 
             Scene scene = new Scene(root);
             Stage stage = new Stage();
+
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Menu de Registro Vendedor");
             stage.setScene(scene);
