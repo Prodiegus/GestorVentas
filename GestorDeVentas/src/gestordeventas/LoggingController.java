@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -26,18 +27,13 @@ import javafx.stage.Stage;
  */
 public class LoggingController implements Initializable {
     
-    @FXML
-    private Label label;
-    @FXML
-    private TextField usuario;
-    @FXML
-    private PasswordField clave;
-    @FXML
-    private Button registrar;
+    @FXML private Label label;
+    @FXML private TextField usuario;
+    @FXML private PasswordField clave;
+    @FXML private Button registrar;
 
     //Listeners
-    @FXML
-    private void handleIngresar(ActionEvent event) {
+    @FXML private void handleIngresar(ActionEvent event) {
         Tienda tienda = new Tienda();
         if(tienda.log(usuario.getText().trim(), Integer.parseInt(clave.getText().trim()))){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Vendedores.fxml"));
@@ -56,6 +52,7 @@ public class LoggingController implements Initializable {
 
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Menu de Ventas");
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon.png")));
                 stage.setScene(scene);
                 close(event);
                 stage.show();
@@ -66,8 +63,7 @@ public class LoggingController implements Initializable {
         }
         
     }
-    @FXML
-    private void handleRegistrar(ActionEvent event){
+    @FXML private void handleRegistrar(ActionEvent event){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Register.fxml"));
             
@@ -80,6 +76,7 @@ public class LoggingController implements Initializable {
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Menu de Registro Vendedor");
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon.png")));
             stage.setScene(scene);
             stage.showAndWait();
             
@@ -89,8 +86,7 @@ public class LoggingController implements Initializable {
     }
 
     //closer
-    @FXML
-    private void close(ActionEvent event) {
+    @FXML private void close(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -101,7 +97,6 @@ public class LoggingController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
 }

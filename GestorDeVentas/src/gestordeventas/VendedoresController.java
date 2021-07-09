@@ -19,46 +19,36 @@ import javafx.scene.control.TextField;
  * @author prodiegus
  */
 public class VendedoresController implements Initializable {
-    @FXML
-    private Label label;
-    @FXML
-    private Label vendedor;
-    @FXML
-    private TextField nombreProducto;
-    @FXML
-    private TextField precioProducto;
-    @FXML
-    private ComboBox<Producto> boxProdutos;
-    @FXML
-    private Tienda tienda;
+    @FXML private Label label;
+    @FXML private Label vendedor;
+    @FXML private TextField nombreProducto;
+    @FXML private TextField precioProducto;
+    @FXML private ComboBox<Producto> boxProdutos;
+    @FXML private Tienda tienda;
 
 
     //listeners
-    @FXML
-    private void handleAdd(ActionEvent event) {
+    @FXML private void handleAdd(ActionEvent event) {
         label.setText("agregado");
     }
-    @FXML
-    private void handleAddProducto(ActionEvent event){
+    @FXML private void handleAddProducto(ActionEvent event){
         tienda.addProducto(nombreProducto.getText().trim(), Float.parseFloat(precioProducto.getText().trim()));
         nombreProducto.setText("");
         precioProducto.setText("");
         setProductos(tienda.getProductos());
     }
-    @FXML
-    private void handleSendSell(ActionEvent event) {
+    @FXML private void handleSendSell(ActionEvent event) {
         //fandle the facts
     }
 
     //setter
-    @FXML
-    public void setVendedor(Vendedor vendedor){
+    @FXML public void setVendedor(Vendedor vendedor){
         this.vendedor.setText(vendedor.getNombre());
     }
-    @FXML
-    public void setTienda(Tienda tienda) {
+    @FXML public void setTienda(Tienda tienda) {
         this.tienda = tienda;
     }
+
     public void setProductos(ArrayList<Producto> productos){
         if(!productos.isEmpty() && boxProdutos != null){
             boxProdutos.getItems().removeAll(boxProdutos.getItems());

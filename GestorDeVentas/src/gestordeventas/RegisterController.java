@@ -16,15 +16,11 @@ import javafx.stage.Stage;
  * @author prodiegus
  */
 public class RegisterController implements Initializable {
-    @FXML
-    private TextField usuario;
-    @FXML
-    private TextField clave;
-    @FXML
-    private Button registrar;
+    @FXML private TextField usuario;
+    @FXML private TextField clave;
+    @FXML private Button registrar;
 
-    @FXML
-    private void handleRegistro(ActionEvent event) {
+    @FXML private void handleRegistro(ActionEvent event) {
         Tienda tienda = new Tienda();
         tienda.addVendedor(usuario.getText().trim(), Integer.parseInt(clave.getText().trim()));
         Stage stage = (Stage) this.registrar.getScene().getWindow();
