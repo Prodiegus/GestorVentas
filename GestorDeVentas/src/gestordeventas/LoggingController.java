@@ -52,7 +52,7 @@ public class LoggingController implements Initializable {
 
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.setTitle("Menu de Ventas");
-                stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon.png")));
+                stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icono.png")));
                 stage.setScene(scene);
                 close(event);
                 stage.show();
@@ -76,7 +76,7 @@ public class LoggingController implements Initializable {
 
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Menu de Registro Vendedor");
-            stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icon.png")));
+            stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icono.png")));
             stage.setScene(scene);
             stage.showAndWait();
             

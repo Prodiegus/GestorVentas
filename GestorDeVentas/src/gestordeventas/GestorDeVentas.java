@@ -24,7 +24,7 @@ public class GestorDeVentas extends Application {
         Scene logging = new Scene(root);
 
         stage.setTitle("Loggin ProStore");
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("GestorDeVentas/src/gestordeventas/img/icon.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("img/icono.png")));
         stage.centerOnScreen();
         stage.setScene(logging);
         stage.show();
